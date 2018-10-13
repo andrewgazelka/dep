@@ -79,8 +79,8 @@ if $ethernet; then
 fi
 connect $robot_network $DEP_ROBOT_NETWORK_PSK
 if $tests; then
-    python3 robot/robot.py deploy
+    ./gradlew test && ./gradle deploy
 else
-    python3 robot/robot.py deploy --skip-tests
+    ./gradlew deploy
 fi
 if $reconnect; then connect $start_network $DEP_START_NETWORK_PSK; fi
